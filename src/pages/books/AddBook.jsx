@@ -1,8 +1,12 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getBookStatus, postBooks } from "../../features/books/bookSlice";
+import { useNavigate } from "react-router-dom";
 
 export default function AddBook() {
+  //useNavigate
+  const navigate = useNavigate();
+
   //SETTING INITIAL FORM STATE
   const [formData, setFormData] = useState({
     title: "",
@@ -20,7 +24,7 @@ export default function AddBook() {
 
   //get add status state from the store
   const { addStatus } = useSelector(getBookStatus);
- 
+
   //handle submit
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,7 +32,6 @@ export default function AddBook() {
     try {
       dispatch(postBooks(formData));
       setShowSuccess(true);
-      // Hide success message after 3 seconds and navigate
       setTimeout(() => {
         setShowSuccess(false);
         navigate("/books");

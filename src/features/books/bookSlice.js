@@ -59,10 +59,10 @@ export const postBooks = createAsyncThunk(
 //UPDATE BOOK
 export const updateBooks = createAsyncThunk(
   "books/updateBooks",
-  async ({ id, formData }) => {
+  async ({ bookId, formData }) => {
     try {
       const response = await axios.put(
-        `https://playground-013-backend.vercel.app/books/${id}`,
+        `https://playground-013-backend.vercel.app/books/${bookId}`,
         formData
       );
 
