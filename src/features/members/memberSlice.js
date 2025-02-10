@@ -178,7 +178,7 @@ export const memberSlice = createSlice({
 export const getAllMembers = (state) => state.members.members;
 export const getMemberById = (state) => state.members.singleMember;
 
-export const getMemberByStatus = createSelector(
+export const getMemberStatus = createSelector(
   (state) => state.members.fetchStatus,
   (state) => state.members.addStatus,
   (state) => state.members.deleteStatus,
